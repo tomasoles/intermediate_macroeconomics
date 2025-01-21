@@ -29,7 +29,7 @@ Všetky chyby sú moje vlastné a vopred ďakujem za každú pomoc.
 
 - **Preklad učebnice**: Jednotlivé kapitoly v slovenskom jazyku.  
 - **Domáce úlohy a zadania**: Úlohy na semináre a ich riešenia.
-- **Podporné skripty**: Excel a Python kód na analýzu a vizualizácie.  
+- **Podporné skripty**: Excel a Python kód na simuláciu a vizualizácie modelov.  
 
 ---
 
