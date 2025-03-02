@@ -118,6 +118,31 @@ grid.arrange(p1, p2, p3, p4, p5, p6, ncol = 2)
 # Parametrize the Solow Model per Worker
 
 ```{r}
+rm(list = ls())
+# Parameters
+alpha <- 0.33
+s1 <- 0.2
+s2 <- 0.3
+A <- 1
+delta <- 0.1
+z <- 0.02
+n <- 0.01
+
+# Steady state capital per effective unit of labor
+k_star <- (s1 * A / ((1 + z) * (1 + n) - (1 - delta))) ** (1 / (1 - alpha))
+
+# Time periods
+T <- 50
+k_hat <- numeric(T)
+k_hat[1] <- k_star
+
+# Arrays to store the results
+y_hat <- numeric(T)
+c_hat <- numeric(T)
+i_hat <- numeric(T)
+R_t <- numeric(T)
+w_t <- numeric(T)
+
 # Arrays to store per worker variables
 k <- numeric(T)
 y <- numeric(T)
@@ -131,6 +156,7 @@ k[1] <- k_hat[1] * Z_t
 y[1] <- y_hat[1] * Z_t
 c[1] <- c_hat[1] * Z_t
 i[1] <- i_hat[1] * Z_t
+
 
 # Iteratively calculate the values for each period
 for (t in 2:T) {
@@ -204,7 +230,7 @@ y_growth <- numeric(T)
 
 # Calculate growth rate of per worker output
 for (t in 2:T) {
-  y_growth[t] <- (y[t] - y[t-1]) / y[t-1] * 100
+  y_growth[t] <- (y[t] - y[t-1]) * 100
 }
 
 y_growth[1] <- NA
@@ -216,7 +242,7 @@ ggplot(data.frame(time, y_growth), aes(x = time, y = y_growth)) +
   geom_line() +
   geom_vline(xintercept = 9, color = "red", linetype = "dashed") +
   labs(title = "Growth Rate of Output per Worker", x = "Time", y = "Growth Rate (%)") +
-  ylim(0, 5) +
+  ylim(1,5)+
   theme_minimal()
 ```
 
