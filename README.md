@@ -2,7 +2,7 @@
 
 Tento repozitár slúži na výučbu kurzu **Pokročilej makroekonómie**. Obsahuje:  
 1. **Slovenský preklad učebnice** (priebežne aktualizovaný): Garín, J., Lester, R., & Sims, E. (2021). *Intermediate Macroeconomics. This Version, 3(0)1*.  Originál učebnice je voľne dostupný [tu]([https://www3.nd.edu/~esims1/intermediate_macro.html](https://juliogarin.com/files/textbook/GLS_Intermediate_Macro.pdf)
-2. **Asociované domáce zadania a materiály na semináre**: Slúžia na precvičenie kľúčových konceptov pokročilej makroekonómie.  
+2. **Asociované domáce zadania a materiály na semináre**: Slúžia na precvičenie kľúčových konceptov stredne pokročilej makroekonómie.  
 
 ---
 
@@ -29,7 +29,7 @@ Všetky chyby sú moje vlastné a vopred ďakujem za každú pomoc.
 
 - **Preklad učebnice**: Jednotlivé kapitoly v slovenskom jazyku.  
 - **Domáce úlohy a zadania**: Úlohy na semináre a ich riešenia.
-- **Podporné skripty**: Excel a Python kód na simuláciu a vizualizácie modelov.  
+- **Podporné skripty**: Stata a R kód na simuláciu a vizualizácie modelov.  
 
 ---
 
