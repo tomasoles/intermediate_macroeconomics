@@ -210,8 +210,6 @@ esttab reg1 reg2 reg3 reg_r1 reg_r2 reg_r3 using mrw_results.tex,    ///
 gen dly = ly85 - ly60
 * Clear previous estimates
 eststo clear
-calculate impoled lambda from these regressions gen dly = ly85 - ly60
-eststo clear
 eststo reg1: regress dly ly60 if n == 1
 eststo reg2: regress dly ly60 if i == 1
 eststo reg3: regress dly ly60 if o == 1
@@ -229,7 +227,7 @@ preserve
 regress dly ly60 if n == 1
 eststo reg1
 * Extract coefficient of ly60 for implied lambda
-local lambda_n = (_b[ly60])/25
+local lambda_n = log(_b[ly60]+1)/25
 display "Implied lambda for Non-Oil Group: " -`lambda_n'
 restore
 
@@ -238,7 +236,7 @@ preserve
 regress dly ly60 if i == 1
 eststo reg2
 * Extract coefficient of ly60 for implied lambda
-local lambda_i = (_b[ly60])/25
+local lambda_i = log(_b[ly60]+1)/25
 display "Implied lambda for Intermediate Group: " -`lambda_i'
 restore
 
@@ -247,7 +245,7 @@ preserve
 regress dly ly60 if o == 1
 eststo reg3
 * Extract coefficient of ly60 for implied lambda
-local lambda_o = (_b[ly60])/25
+local lambda_o = log(_b[ly60]+1)/25
 display "Implied lambda for OECD Group: " -`lambda_o'
 restore
 
@@ -258,7 +256,7 @@ preserve
 regress dly ly60 ls lngd lschool if n == 1
 eststo reg_r1
 * Extract coefficient of ly60 for implied lambda
-local lambda_r1 = (_b[ly60])/25
+local lambda_r1 = log(_b[ly60]+1)/25
 display "Implied lambda for Non-Oil Group (Restricted): " -`lambda_r1'
 restore
 
@@ -267,7 +265,7 @@ preserve
 regress dly ly60 ls lngd lschool if i == 1
 eststo reg_r2
 * Extract coefficient of ly60 for implied lambda
-local lambda_r2 = (_b[ly60])/25
+local lambda_r2 = log(_b[ly60]+1)/25
 display "Implied lambda for Intermediate Group (Restricted): " -`lambda_r2'
 restore
 
@@ -276,7 +274,7 @@ preserve
 regress dly ly60 ls lngd lschool if o == 1
 eststo reg_r3
 * Extract coefficient of ly60 for implied lambda
-local lambda_r3 = (_b[ly60])/25
+local lambda_r3 = log(_b[ly60]+1)/25
 display "Implied lambda for OECD Group (Restricted): " -`lambda_r3'
 restore
 	
