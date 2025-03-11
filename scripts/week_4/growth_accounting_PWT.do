@@ -8,12 +8,8 @@ use pwt1001.dta, clear
 * Set parameters
 local alpha = 0.33  
 
-
-* Compute GDP per worker (output per worker)
-gen gdp_per_worker = cn / emp
-
 * Compute log TFP
-gen ln_A = ln(cn) - `alpha' * ln(cgdpo) - (1 - `alpha') * ln(emp)
+gen ln_A = log(cgdpe) - `alpha' * log(cn) - (1 - `alpha') * log(emp)
 
 * Normalize TFP relative to the US in 2019
 preserve
@@ -30,12 +26,15 @@ gen tfp_relative = exp(ln_A - tfp_us_2019)  // Normalize relative to US = 1
 * Keep only 2019 for plotting
 keep if year == 2019
 
+* Compute GDP per worker (output per worker)
+gen gdp_per_worker = cgdpe / emp
+
 * Compute correlation
 corr tfp_relative gdp_per_worker
 
 * Scatter plot of TFP relative to US vs GDP per worker
 twoway (scatter gdp_per_worker tfp_relative, msize(small) mlab(countrycode) mlabsize(tiny)), ///
-    note("Corr = 0.97", size(small)) ///
+    note("Corr = 0.96", size(small)) ///
     xlabel(, angle(0)) ///
     ylabel(, angle(0)) ///
     ytitle("GDP per Worker (2019)") ///
